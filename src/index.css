@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+/* ============================
+   GLOBAL BASE STYLES
+   ============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================
+   CUSTOM SCROLLBAR
+   ============================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #EA580C, #E53E3E);
+  border-radius: 999px;
+}
+
+/* ============================
+   BRAND GRADIENT UTILITIES
+   ============================ */
+.brand-gradient {
+  background: #EA580C;
+}
+
+.brand-gradient-soft {
+  background: rgba(234, 88, 12, 0.08);
+}
+
+.brand-text-gradient {
+  color: #EA580C;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #FFF7ED 0%, #FEF2F2 40%, #F8FAFC 100%);
+}
+
+/* ============================
+   GLASSMORPHISM CARD
+   ============================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+
+
+/* ============================
+   FLOATING ANIMATION
+   ============================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite 1s;
+}
+
+/* ============================
+   PLAIN ORANGE BUTTON (NO GRADIENT)
+   ============================ */
+.shimmer-btn,
+.plain-orange-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+.shimmer-btn:hover,
+.plain-orange-btn:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.35);
+}
+.shimmer-btn:active,
+.plain-orange-btn:active {
+  background: #9A3412;
+  transform: translateY(0);
+}
+
+/* ============================
+   PULSE BADGE
+   ============================ */
+@keyframes pulseBadge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(234, 88, 12, 0); }
+}
+.pulse-badge {
+  animation: pulseBadge 2s ease-in-out infinite;
+}
+
+/* ============================
+   NAVBAR BLUR
+   ============================ */
+.navbar-blur {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+}
+
+/* ============================
+   SERVICE CARD HOVER (Faint Warm Orange)
+   ============================ */
+.service-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover {
+  background-color: #FFF7ED !important; /* Faint soft warm orange */
+  border-color: #FDBA74 !important; /* Soft warm orange border */
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(234, 88, 12, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+/* ============================
+   STAT COUNTER CARD
+   ============================ */
+.stat-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%);
+  border: 1px solid rgba(234, 88, 12, 0.15);
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(234, 88, 12, 0.15);
+}
+
+/* ============================
+   ACCORDION STYLES
+   ============================ */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-content.open {
+  max-height: 2000px;
+}
+
+/* ============================
+   MODAL OVERLAY
+   ============================ */
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ============================
+   HERO GEOMETRIC SHAPES
+   ============================ */
+.hero-blob-1 {
+  background: radial-gradient(circle at center, rgba(234, 88, 12, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+}
+.hero-blob-2 {
+  background: radial-gradient(circle at center, rgba(229, 62, 62, 0.12) 0%, transparent 70%);
+  filter: blur(50px);
+}
+
+/* ============================
+   POLICY TABS
+   ============================ */
+.policy-tab {
+  transition: all 0.25s ease;
+  border-bottom: 2px solid transparent;
+}
+.policy-tab.active {
+  border-bottom-color: #EA580C;
+  color: #EA580C;
+}
+
+/* ============================
+   TRUST BADGE SHINE
+   ============================ */
+.trust-badge {
+  position: relative;
+  overflow: hidden;
+}
+.trust-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255,255,255,0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.trust-badge:hover::after {
+  transform: rotate(45deg) translateX(100%);
+}
+
+/* ============================
+   SECTION DIVIDER
+   ============================ */
+.section-divider {
+  background: linear-gradient(90deg, transparent, rgba(234, 88, 12, 0.3), transparent);
+  height: 1px;
+}
+
+/* ============================
+   NOTIFICATION TOAST STYLE
+   ============================ */
+.form-input {
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  outline: none;
+  background: #FAFAFA;
+  width: 100%;
+}
+.form-input:focus {
+  border-color: #EA580C;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+  background: white;
+}
+
+/* ============================
+   LIGHT 3D PORTAL AESTHETIC STYLES
+   ============================ */
+
+/* ── Luminous Sunlit Hero Background (Soft porcelain slate #F8FAFC to #FFF9F5) ── */
+.hero-light-bg {
+  background: 
+    radial-gradient(ellipse 75% 65% at 75% 20%, rgba(251, 146, 60, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 55% at 15% 75%, rgba(239, 68, 68, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 45% 5%, rgba(254, 215, 170, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FFF9F5 45%, #F8FAFC 100%);
+}
+
+/* ── Morning Sunbeam Sweep Overlay ── */
+.morning-sunbeams {
+  background: conic-gradient(
+    from 215deg at 85% 10%,
+    rgba(254, 215, 170, 0.35) 0deg,
+    transparent 28deg,
+    rgba(251, 146, 60, 0.18) 55deg,
+    transparent 85deg,
+    rgba(254, 240, 138, 0.22) 115deg,
+    transparent 150deg
+  );
+  animation: sunbeamSweep 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sunbeamSweep {
+  0% {
+    opacity: 0.55;
+    transform: rotate(-3deg) scale(1);
+  }
+  100% {
+    opacity: 0.85;
+    transform: rotate(3deg) scale(1.04);
+  }
+}
+
+/* ── Subtle Cyber Mesh (Dotted micro-grid matrix) ── */
+.hero-light-grid {
+  background-image: radial-gradient(rgba(234, 88, 12, 0.14) 1.25px, transparent 1.25px);
+  background-size: 30px 30px;
+  animation: meshDrift 40s linear infinite;
+}
+
+@keyframes meshDrift {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 60px 60px; }
+}
+
+/* ── 3 Sunlit Ambient Orbs (Coral, Amber, Peach) ── */
+.light-orb-1 {
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.25) 0%, rgba(234, 88, 12, 0) 70%);
+  filter: blur(70px);
+  animation: orbPulse 6s ease-in-out infinite;
+}
+.light-orb-2 {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(245, 158, 11, 0) 70%);
+  filter: blur(85px);
+  animation: orbPulse 8s ease-in-out infinite 2s;
+}
+.light-orb-3 {
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.5) 0%, rgba(254, 215, 170, 0) 70%);
+  filter: blur(80px);
+  animation: orbPulse 7s ease-in-out infinite 4s;
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.15) translate(15px, -15px);
+    opacity: 0.95;
+  }
+}
+
+/* ── Crisp Solid Orange Accent Headline (Pure #EA580C orange, no gradient) ── */
+.hero-light-title-gradient {
+  color: #EA580C;
+}
+
+/* ── Frosted Optical Glass (High-End Acrylic with 28px blur) ── */
+.glass-light-hud {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 35px 80px -20px rgba(234, 88, 12, 0.16),
+    0 0 0 1px rgba(234, 88, 12, 0.09),
+    0 12px 35px -5px rgba(15, 23, 42, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    inset 0 -1px 2px rgba(234, 88, 12, 0.12);
+}
+
+.glass-light-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+}
+
+.glass-light-satellite {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 22px 50px -10px rgba(234, 88, 12, 0.20),
+    0 0 0 1px rgba(234, 88, 12, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+}
+.glass-light-satellite:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 
+    0 28px 60px -8px rgba(234, 88, 12, 0.28),
+    0 0 0 1px rgba(234, 88, 12, 0.25);
+}
+
+.glass-light-accent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 247, 237, 0.90) 100%);
+  border: 1px solid rgba(234, 88, 12, 0.22);
+}
+
+/* ── Luxury Boarding Pass Cutouts (Airline notch design) ── */
+.ticket-notch-left {
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFF9F5;
+  border-right: 1.5px solid rgba(234, 88, 12, 0.22);
+  box-shadow: inset -3px 0 5px rgba(234, 88, 12, 0.10);
+  z-index: 10;
+}
+
+.ticket-notch-right {
+  position: absolute;
+  right: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFF9F5;
+  border-left: 1.5px solid rgba(234, 88, 12, 0.22);
+  box-shadow: inset 3px 0 5px rgba(234, 88, 12, 0.10);
+  z-index: 10;
+}
+
+/* ── Hologram Foil Header Strip ── */
+.hologram-strip {
+  background: linear-gradient(
+    90deg, 
+    rgba(234, 88, 12, 0.10) 0%, 
+    rgba(245, 158, 11, 0.25) 25%, 
+    rgba(239, 68, 68, 0.25) 50%, 
+    rgba(59, 130, 246, 0.20) 75%, 
+    rgba(234, 88, 12, 0.10) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ── Animated Scanner Laser ── */
+@keyframes laserScan {
+  0% {
+    top: 0%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 92%;
+    opacity: 0.95;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.3;
+  }
+}
+.laser-scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #EA580C, #F59E0B, transparent);
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.9);
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+/* ── 3D portal perspective wrapper ── */
+.portal-3d-wrapper {
+  perspective: 1300px;
+}
+.portal-3d-inner {
+  transform: rotateY(-7deg) rotateX(2.5deg) translateZ(0);
+  transform-style: preserve-3d;
+  animation: portalFloat3D 7s ease-in-out infinite;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portal-3d-wrapper:hover .portal-3d-inner {
+  transform: rotateY(-2deg) rotateX(1deg) translateZ(20px);
+}
+
+@keyframes portalFloat3D {
+  0%, 100% {
+    transform: rotateY(-7deg) rotateX(2.5deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(-5deg) rotateX(1.5deg) translateY(-8px);
+  }
+}
+
+/* ── Floating particles ── */
+.particle-light {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleRise linear infinite;
+}
+
+@keyframes particleRise {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-170px) translateX(30px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* ── Translucent Gyroscopic 3D Portal Rings with Coral Refractions ── */
+.light-portal-ring {
+  animation: portalRing 24s linear infinite;
+}
+.light-portal-ring-reverse {
+  animation: portalRing 32s linear infinite reverse;
+}
+
+@keyframes portalRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ── Flowing Dash Animation for the Coral Flight Arc ── */
+@keyframes flowDash {
+  0% {
+    stroke-dashoffset: 80;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-flow-dash {
+  animation: flowDash 2.5s linear infinite;
+}
+
+/* ── Radar Ping Waves ── */
+@keyframes radarWave {
+  0% {
+    r: 4px;
+    opacity: 0.85;
+    stroke-width: 2px;
+  }
+  100% {
+    r: 20px;
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+.radar-ping-ring {
+  animation: radarWave 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ── Equalizer Dancing Volume Bars ── */
+@keyframes equalizerDance {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+.equalizer-bar {
+  transform-origin: bottom;
+  animation: equalizerDance 1.2s ease-in-out infinite;
+}
+
+/* ── Light live badge pulse ── */
+.live-badge-light {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #15803d;
+}
+
+/* ── Gradient divider for section transition ── */
+.hero-to-light {
+  background: linear-gradient(to bottom, #0D0A16 0%, #F8FAFC 100%);
+}
+
+/* ── Typing cursor blink ── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursorBlink 1.1s ease-in-out infinite;
+  color: #EA580C;
+}
+
+/* ── Hero section specific navbar override ── */
+.hero-section-active .navbar-blur {
+  background: rgba(13,10,22,0.85);
+  border-bottom-color: rgba(234,88,12,0.15);
+}
+
